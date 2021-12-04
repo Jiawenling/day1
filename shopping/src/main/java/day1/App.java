@@ -9,8 +9,7 @@ import java.util.*;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
         System.out.println("Welcome to your shopping cart");
         boolean flag = false;
         List<String> cart = new ArrayList<>();
@@ -47,37 +46,29 @@ public class App
 
             if(input.startsWith("delete")){
                 
-                    int indexInCart = Integer.parseInt(requests);
-                    int actualIndex = indexInCart -1;
-                    if(actualIndex>= cart.size()|| actualIndex<0){
-                        System.out.println("Incorrect item index");
-                    } else if(cart.isEmpty()){
-                        System.out.println("Cart is empty");
-                    } else{
-                        System.out.println(cart.get(actualIndex) + " removed from cart");
-                        cart.remove(actualIndex);
-                        
-                    }
+                int indexInCart = Integer.parseInt(requests);
+                int actualIndex = indexInCart -1;
+                if(actualIndex>= cart.size()|| actualIndex<0){
+                    System.out.println("Incorrect item index");
+                } else if(cart.isEmpty()){
+                    System.out.println("Cart is empty");
+                } else{
+                    System.out.println(cart.get(actualIndex) + " removed from cart");
+                    cart.remove(actualIndex);
+                    
                 }
+            }
                     
             if(input.startsWith("exit")){
-                flag = true;
+                System.out.println("Exiting shopping cart.");
+                break;
             }
-
-            
-
             
         }
-                
-
-                
-
-            
-            
             scan.close();
             
-        }
+    }
 
         
-    }
+}
 
