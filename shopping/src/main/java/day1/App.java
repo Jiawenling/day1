@@ -2,6 +2,7 @@ package day1;
 
 import java.util.ArrayList;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -10,7 +11,7 @@ import java.util.*;
  */
 public class App 
 {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
 
          //creating directory
          String directory = args[0];
@@ -20,7 +21,7 @@ public class App
          File f1 = new File(directory);
          boolean bool = f1.mkdir();
          if(bool){  
-             System.out.printf("Directory is created successfully");  
+             System.out.printf("Directory is created successfully:" + directory);  
          }else{  
          System.out.println("Error Found!");   
          }
@@ -37,8 +38,11 @@ public class App
 
              //creating user db
              if(input.equals("login")){
+
+                String filename = requests+".txt";
+                 
                 
-                File file = new File("%s/%s", directory, requests);
+                File file = new File("\\" + directory+"\\"+filename);
 
                 if (file.createNewFile()) {
                     System.out.println("File has been created.");
