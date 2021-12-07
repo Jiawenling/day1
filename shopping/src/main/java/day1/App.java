@@ -1,6 +1,7 @@
 package day1;
 
 import java.util.ArrayList;
+import java.io.File;
 import java.util.*;
 
 /**
@@ -9,7 +10,22 @@ import java.util.*;
  */
 public class App 
 {
-    public static void main( String[] args ){
+    public static void main(String[] args){
+
+         //creating directory
+         String directory = args[0];
+         if(directory.isEmpty()){
+             directory = "db";   
+         } 
+         File f1 = new File(directory);
+         boolean bool = f1.mkdir();
+         if(bool){  
+             System.out.printf("Directory is created successfully");  
+         }else{  
+         System.out.println("Error Found!");   
+         }
+        
+         
         System.out.println("Welcome to your shopping cart");
         boolean flag = false;
         List<String> cart = new ArrayList<>();
@@ -17,7 +33,22 @@ public class App
         while(!flag){
             String com = scan.next();
             String input = com.toLowerCase();
-            String requests = scan.nextLine().trim();
+            String requests = scan.nextLine().trim();   
+
+             //creating user db
+             if(input.equals("login")){
+                
+                File file = new File("%s/%s", directory, requests);
+
+                if (file.createNewFile()) {
+                    System.out.println("File has been created.");
+                } else {
+                    System.out.println("File already exists.");
+                }
+            }
+            
+
+        
             
 
             if(input.equals("list")){
